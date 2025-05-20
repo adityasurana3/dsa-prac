@@ -7,8 +7,8 @@ class Solution:
         """
         p = m-1
         q = n-1
-        r = len(nums1) -1
-        while(r >= 0):
+        r = len(nums1) - 1
+        while (r > 0):
             if (q < 0): break
             if (p >= 0 and nums1[p] > nums2[q]):
                 nums1[r] = nums1[p]
@@ -19,6 +19,10 @@ class Solution:
                 r -= 1
                 q -= 1
         print(nums1)
+
+        # Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+        # Output: [1,2,2,3,5,6]
+
 
 s = Solution()
 s.merge([1,2,3,0,0,0], 3, [2,5,6], 3)
