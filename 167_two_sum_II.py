@@ -14,7 +14,7 @@ class Solution:
                 i += 1
         return []
     
-        ################## Brute force approach ##########################
+        ################## Brute force approach[O(n^2)] ##########################
         '''
         total_len_of_nums = len(numbers)
         for i in range(total_len_of_nums):
