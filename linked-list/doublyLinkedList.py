@@ -93,9 +93,7 @@ class DoublyLinkedList:
         curr = self.head
         while curr.next is not None:
             curr = curr.next
-            curr.prev.next = None
-        curr.prev = None
-        del curr
+        curr.prev.next = None
 
     def delete_in_between(self, position: int) -> None:
         if not self.head:
