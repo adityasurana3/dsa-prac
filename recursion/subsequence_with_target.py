@@ -35,6 +35,11 @@ class Solution:
         return self.result
 
 
-s = Solution()
-results = s.combinationSum(candidates=[5, 9, 4], target=9)
-print(results)
+test_data = [
+    ([17, 18, 6, 11, 2, 4], 6),
+    ([1, 2, 3], 3)
+    ]
+for t, k in test_data:
+    s = Solution()
+    results = s.combinationSum(candidates=t, target=k)
+    print(results)
