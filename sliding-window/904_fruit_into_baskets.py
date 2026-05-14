@@ -53,3 +53,4 @@ class Solution:
 s = Solution()
 print(s.brute_force(fruits=[1, 2, 3, 2, 2]))
 print(s.better(fruits=[1, 2, 3, 2, 2]))
+print(s.totalFruit(fruits=[1, 2, 3, 2, 2]))
