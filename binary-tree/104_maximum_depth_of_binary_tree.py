@@ -27,6 +27,24 @@ class Solution:
         self.helper(root=root, count=0)
         return self.height
 
+    def maxDepthBFS(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+        queue = deque([])
+        queue.append(root)
+        count = 0
+        while queue:
+            que_len = len(queue)
+            for _ in range(que_len):
+                e = queue.popleft()
+                if e.left is not None:
+                    queue.append(e.left)
+                if e.right is not None:
+                    queue.append(e.right)
+            count += 1
+
+        return count
+
 
 # root = [3, 9, 20, None, None, 15, 7]
 root = TreeNode(3)
@@ -47,3 +65,4 @@ root1.right = None
 
 s = Solution()
 print(s.maxDepth(root))
+print(s.maxDepthBFS(root))
