@@ -10,9 +10,6 @@ class TreeNode:
 
 
 class Solution:
-    def __init__(self):
-        self.diameter = 0
-
     def solve(self, root: Optional[TreeNode]) -> tuple[int, int]:
         if root is None:
             return 0, 0
@@ -22,7 +19,16 @@ class Solution:
         diameter = leftHeight + rightHeight
         return height, max(leftDiameter, rightDiameter, diameter)
 
-    def other(self, root: Optional[TreeNode]) -> int:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        _, diameter = self.solve(root)
+        return diameter
+
+
+class Solution2:
+    def __init__(self) -> None:
+        self.diameter = 0
+
+    def solve(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
         leftHeight = self.solve(root.left)
@@ -42,3 +48,4 @@ root.left.left = TreeNode(4)
 root.left.right = TreeNode(5)
 
 print(Solution().diameterOfBinaryTree(root))
+print(Solution2().diameterOfBinaryTree(root))
