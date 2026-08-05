@@ -3,14 +3,14 @@ from typing import Optional
 
 # Definition for a binary tree node.
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
+    def __init__(self, val=0, left=None, right=None) -> None:
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def __init__(self):
+    def __init__(self) -> None:
         self.diff = 0
 
     def solve(self, root: Optional[TreeNode]) -> int:
