@@ -26,18 +26,38 @@ class Solution:
         return self.diff <= 1
 
 
-root = TreeNode(1)
-root.left = TreeNode(2)
-root.right = TreeNode(2)
-root.left.left = TreeNode(3)
-root.left.right = TreeNode(3)
-root.left.left.left = TreeNode(4)
-root.left.left.right = TreeNode(4)
+class BetterApproach:
+    def solve(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+        leftHeight = self.solve(root.left)
+        if leftHeight == -1:
+            return -1
+        rightHeight = self.solve(root.right)
+        if rightHeight == -1:
+            return -1
+        if abs(leftHeight - rightHeight) > 1:
+            return -1
+        return 1 + max(leftHeight, rightHeight)
 
-# root = TreeNode(3)
-# root.left = TreeNode(9)
-# root.right = TreeNode(20)
-# root.right.left = TreeNode(15)
-# root.right.right = TreeNode(7)
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        height = self.solve(root)
+        return height != -1
+
+
+# root = TreeNode(1)
+# root.left = TreeNode(2)
+# root.right = TreeNode(2)
+# root.left.left = TreeNode(3)
+# root.left.right = TreeNode(3)
+# root.left.left.left = TreeNode(4)
+# root.left.left.right = TreeNode(4)
+
+root = TreeNode(3)
+root.left = TreeNode(9)
+root.right = TreeNode(20)
+root.right.left = TreeNode(15)
+root.right.right = TreeNode(7)
 
 print(Solution().isBalanced(root))
+print(BetterApproach().isBalanced(root))
